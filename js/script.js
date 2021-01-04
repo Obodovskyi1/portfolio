@@ -4,11 +4,14 @@ const hamburger = document.querySelector('.hamburger'),
      items = document.querySelector('.menu_block_list'),
      aside = document.querySelector('.aside'),
      overlay = document.querySelector('.menu_overlay'),
-     body = document.querySelector('.body');
+     body = document.querySelector('.body'),
+     scroll = calcScroll();
 
 hamburger.addEventListener('click', ()=>{
     menu.classList.add('active');
     body.classList.add('overflow');
+    document.body.style.marginRight = `${scroll}px`;
+    document.body.style.marginRight = `0px`;
 });
 
 function hideMenu(i){
@@ -29,6 +32,21 @@ $(window).scroll(function(){
   }
 });
 
+function calcScroll(){
+  let div = document.createElement('div');
+  div.style.width = '50px';
+  div.style.height = '50px';
+  div.style.overflowY = 'scroll';
+  div.style.visibility = 'hidden';
+
+  document.body.appendChild(div);
+
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+
+  div.remove();
+
+  return scrollWidth;
+}
 function Up(i){
     $(i).click(function(){
       const _href = $(this).attr("href");
