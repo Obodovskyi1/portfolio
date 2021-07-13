@@ -10,8 +10,9 @@ const hamburger = document.querySelector('.hamburger'),
 hamburger.addEventListener('click', ()=>{
     menu.classList.add('active');
     body.classList.add('overflow');
-    document.body.style.marginRight = `${scroll}px`;
-    document.body.style.marginRight = `0px`;
+    document.body.style.cssText = `
+    padding-right: 16px;
+    `
 });
 
 function hideMenu(i){
