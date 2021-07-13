@@ -19,6 +19,9 @@ function hideMenu(i){
   i.addEventListener('click', ()=>{
       menu.classList.remove('active');
       body.classList.remove('overflow');
+      document.body.style.cssText = `
+         padding-right: 0px;
+      `          
   }); 
 }
 
